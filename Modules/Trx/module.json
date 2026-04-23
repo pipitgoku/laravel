@@ -1,0 +1,13 @@
+{
+    "name": "Trx",
+    "alias": "trx",
+    "description": "",
+    "keywords": [],
+    "order": 0,
+    "providers": [
+        "Modules\\Trx\\Providers\\TrxServiceProvider"
+    ],
+    "aliases": {},
+    "files": [],
+    "requires": []
+}

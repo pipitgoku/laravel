@@ -1,0 +1,49 @@
+FROM php:8.2-cli
+
+# libmcrypt-dev = to perform encription
+# libonig-dev = to perform encoding
+# libxml2-dev = to parse xml
+# libpng-dev = to perform png handling
+# libjpeg-dev = to perform jpeg handling
+# libfreetype6-dev = to render font
+# libzip-dev = to perform actions for zip files
+
+RUN apt-get update -y && apt-get install -y \
+    libmcrypt-dev \
+    libonig-dev \
+    libxml2-dev \
+    libpng-dev \
+    libjpeg-dev \
+    libfreetype6-dev \
+    libzip-dev \
+    zip \
+    unzip \
+    git \
+    curl
+
+# docker-php-ext-configure / docker-php-ext-install = to configure / install php's extentions
+
+# pdo, pdo_mysql = extension to connect to database, to connect to mysql
+# mbstring = extension for handle encoding
+# gd = extension for handling images
+# zip = extension for zip files
+
+RUN docker-php-ext-configure gd \
+    && docker-php-ext-install pdo mbstring pdo_mysql gd zip
+
+# install composer in directory = /usr/local/bin, by using installer named = composer
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+
+# create workdir and copy all files to workdir
+WORKDIR /app
+COPY . /app
+
+# install dependancies from composer.lock
+RUN composer install
+
+# hint app to port 8000, does not actually configure app use port 8000, https://vsupalov.com/docker-expose-ports/#:~:text=Writing%20EXPOSE%20in%20your%20Dockerfile,publish%20the%20port%20by%20itself.
+EXPOSE 8000
+
+# --host=0.0.0.0 -> listen to all available network, meeded in order to be accessed from outside the container
+# run artisan to serve laravel app
+CMD php artisan serve --host=0.0.0.0 --port=8000

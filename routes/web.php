@@ -61,36 +61,6 @@ Route::group(['prefix' => 'sistem','middleware' => ['check.role.menu:SYS']], fun
         Route::put('/{id}', 'CodeController@update');
 		Route::delete('/{id}', 'CodeController@destroy');
     });
-	
-	//--Golongan
-    Route::group(['prefix' => 'golongan','middleware' => ['check.role.menu:SYS10']], function () {
-        Route::get('/', 'GolonganController@index');
-		Route::post('/data', 'GolonganController@getData');
-        Route::post('/', 'GolonganController@store');
-        Route::get('/{id}', 'GolonganController@show');
-        Route::put('/{id}', 'GolonganController@update');
-		Route::delete('/{id}', 'GolonganController@destroy');
-    });
-	
-	//--Jabatan
-    Route::group(['prefix' => 'jabatan','middleware' => ['check.role.menu:SYS11']], function () {
-        Route::get('/', 'JabatanController@index');
-		Route::post('/data', 'JabatanController@getData');
-        Route::post('/', 'JabatanController@store');
-        Route::get('/{id}', 'JabatanController@show');
-        Route::put('/{id}', 'JabatanController@update');
-		Route::delete('/{id}', 'JabatanController@destroy');
-    });
-	
-	//--Test
-    Route::group(['prefix' => 'test','middleware' => ['check.role.menu:SYS04']], function () {
-        Route::get('/', 'TestController@index');
-		Route::post('/data', 'TestController@getData');
-        Route::post('/', 'TestController@store');
-        Route::get('/{id}', 'TestController@show');
-        Route::put('/{id}', 'TestController@update');
-		Route::delete('/{id}', 'TestController@destroy');
-    });
 });
 
 /*--Profile--*/

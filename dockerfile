@@ -1,13 +1,13 @@
-#docker build -t pelatihan11 .
+#docker build -t pelatihan .
 #docker images
-#docker run --name pelatihan11 -p 8086:80 -d pelatihan11:latest
-#docker start pelatihan11
+#docker run --name pelatihan -p 8080:80 -d pelatihan:latest
+#docker start pelatihan
 
 #--Remove Container
-#docker stop pelatihan11
-#docker rm pelatihan11
+#docker stop pelatihan
+#docker rm pelatihan
 #--Remove Image
-#docker rmi pelatihan11
+#docker rmi pelatihan
 
 #--Volume
 #docker volume create postgres-pelatihan

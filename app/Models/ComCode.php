@@ -10,6 +10,8 @@ class ComCode extends Model{
 	private static $tableName   = 'com_code';
     protected $primaryKey   = 'com_cd'; 
     public $incrementing    = false;
+	
+	// public $timestamps = false;
 
     protected $fillable = [
         'com_cd', 'code_nm', 'code_group','code_value','created_id', 'updated_id'

@@ -20,6 +20,8 @@ class DatabaseSeeder extends Seeder
         $this->call(RoleMenusTableSeeder::class);
         $this->call(RoleUsersTableSeeder::class);
 		
+		$this->call(Database\Seeders\MahasiswaSeeder::class);
+		
 		//$this->call(ComRegionTableSeeder::class);
 		//php artisan db:seed --class=ComRegionTableSeeder
     }

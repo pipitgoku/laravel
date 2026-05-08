@@ -40,6 +40,6 @@ class MahasiswaSeeder extends Seeder
 		//--Factory
 		// \App\Models\Mahasiswa::factory(10)->create();
 		MahasiswaModel::truncate();
-		MahasiswaModel::factory(200)->create();
+		MahasiswaModel::factory(10)->create();
     }
 }
